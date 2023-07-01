@@ -13,9 +13,9 @@ dff = pd.read_pickle('books.pkl')
 similarity_score = pd.read_pickle('similarity_scores.pkl')
 
 # collaborative pickle files
-pv = pd.read_pickle('pv.pkl')
-similarity_scores = pd.read_pickle('col_similarity_scores.pkl')
-col_df = pd.read_pickle('col_Df.pkl')
+pv = pd.read_pickle('pv2.pkl')
+similarity_scores = pd.read_pickle('col_similarity_scores2.pkl')
+col_df = pd.read_pickle('col_Df2.pkl')
 
 app = Flask(__name__)
 

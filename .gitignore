@@ -18,6 +18,11 @@ col_Df
 col_df.pkl
 col_similarity_scores.pkl
 col_similiarity_scores.pkl
+col_df2.pkl
+col_similarity_scores2.pkl
+
 pv.pkl
+pv2.pkl
+selectedBooks.pkl
 temp_df.pkl
 similarity_scores.pkl
