@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Book Recommendor System</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Book Recommendor</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/recommendations">Recommendations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/colabrecommendations"
+                >Colab Recommendations</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/nn_recommendations"
+                >Neural net Recommendations</a
+              >
+            </li>
+          </ul>
+          <span class="navbar-text"> Search for recommendations </span>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 style="font-size: 20px">Deep learning output</h1>
+          <form action="/nn_recommend" method="post">
+            <input type="text" name="id" class="form-control" />
+            <br />
+            <input type="submit" class="btn btn-primary" />
+            <br />
+            <br />
+          </form>
+        </div>
+
+        {% if user_books_data %}
+        <h2>Books rated by user</h2>
+        {% for i in user_books_data %}
+
+        <div class="col-2">
+          <div class="card">
+            <div class="card-body">
+              <img class="card-img-top" src="{{i[2]}}" />
+              <h6>{{i[0]}}</h6>
+              <p>{{i[3]}}</p>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %} {% endif %} 
+        
+        {% if data %}
+        <h2>Books recommended to user</h2>
+        {% for i in data %}
+
+        <div class="col-2">
+          <div class="card">
+            <div class="card-body">
+              <img class="card-img-top" src="{{i[2]}}" />
+              <h6>{{i[0]}}</h6>
+              <p>{{i[3]}}</p>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %} {% endif %}
+      </div>
+    </div>
+  </body>
+</html>
